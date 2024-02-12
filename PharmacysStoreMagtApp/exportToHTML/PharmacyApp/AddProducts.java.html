@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>AddProducts.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #1750eb;}
+.s3 { color: #8c8c8c; font-style: italic;}
+.s4 { color: #067d17;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AddProducts.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">PharmacyApp;</span>
+
+<span class="s0">import </span><span class="s1">org.w3c.dom.ls.LSOutput;</span>
+
+<span class="s0">import </span><span class="s1">javax.swing.*;</span>
+<span class="s0">import </span><span class="s1">java.awt.*;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionEvent;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionListener;</span>
+<span class="s0">import </span><span class="s1">java.sql.SQLOutput;</span>
+<span class="s0">import </span><span class="s1">java.util.ArrayList;</span>
+<span class="s0">import </span><span class="s1">java.util.Arrays;</span>
+<span class="s0">import </span><span class="s1">java.util.Vector;</span>
+
+<span class="s0">public class </span><span class="s1">AddProducts </span><span class="s0">extends </span><span class="s1">JFrame </span><span class="s0">implements </span><span class="s1">ActionListener {</span>
+
+
+    <span class="s0">protected </span><span class="s1">String[] TryProduct= </span><span class="s0">new </span><span class="s1">String[</span><span class="s2">100</span><span class="s1">];</span>
+    <span class="s0">private </span><span class="s1">JPanel panel;</span>
+
+    <span class="s1">JButton AddProductBtn ,AddPriceBtn;</span>
+    <span class="s0">protected </span><span class="s1">JTextField ProductText,PriceText;</span>
+
+
+
+    <span class="s1">AddProducts(){</span>
+
+<span class="s3">//        Product.add(&quot;AddingProduct&quot;);</span>
+
+        <span class="s1">ProductText = </span><span class="s0">new </span><span class="s1">JTextField();</span>
+        <span class="s1">ProductText.setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">ProductText.setEditable(</span><span class="s0">true</span><span class="s1">);</span>
+<span class="s3">//        ProductText.setFocusable(false);</span>
+        <span class="s1">ProductText.setBounds(</span><span class="s2">55</span><span class="s1">,</span><span class="s2">85</span><span class="s1">,</span><span class="s2">300</span><span class="s1">,</span><span class="s2">40</span><span class="s1">);</span>
+
+        <span class="s1">PriceText = </span><span class="s0">new </span><span class="s1">JTextField(</span><span class="s2">30</span><span class="s1">);</span>
+        <span class="s1">PriceText.setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">PriceText.setEditable(</span><span class="s0">true</span><span class="s1">);</span>
+<span class="s3">//        PriceText.setFocusable(false);</span>
+        <span class="s1">PriceText.setBounds(</span><span class="s2">55</span><span class="s1">,</span><span class="s2">215</span><span class="s1">,</span><span class="s2">300</span><span class="s1">,</span><span class="s2">40</span><span class="s1">);</span>
+
+        <span class="s1">AddProductBtn = </span><span class="s0">new </span><span class="s1">JButton(</span><span class="s4">&quot;Add Product Name&quot;</span><span class="s1">);</span>
+        <span class="s1">AddProductBtn.setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">AddProductBtn.setFocusable(</span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s1">AddProductBtn.setBounds(</span><span class="s2">130</span><span class="s1">,</span><span class="s2">130</span><span class="s1">,</span><span class="s2">150</span><span class="s1">,</span><span class="s2">40</span><span class="s1">);</span>
+        <span class="s1">AddProductBtn.addActionListener(</span><span class="s0">this</span><span class="s1">);</span>
+
+        <span class="s1">AddPriceBtn = </span><span class="s0">new </span><span class="s1">JButton(</span><span class="s4">&quot;Add Product Price&quot;</span><span class="s1">);</span>
+        <span class="s1">AddPriceBtn.setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">AddPriceBtn.setFocusable(</span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s1">AddPriceBtn.setBounds(</span><span class="s2">130</span><span class="s1">,</span><span class="s2">260</span><span class="s1">,</span><span class="s2">150</span><span class="s1">,</span><span class="s2">40</span><span class="s1">);</span>
+
+
+
+        <span class="s1">panel = </span><span class="s0">new </span><span class="s1">JPanel();</span>
+<span class="s3">//        setPreferredSize(new Dimension(300,500));</span>
+        <span class="s1">panel.setBackground(</span><span class="s0">new </span><span class="s1">Color(</span><span class="s2">0x0AA1DD</span><span class="s1">));</span>
+        <span class="s1">panel.setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">panel.setBounds(</span><span class="s2">0</span><span class="s1">,</span><span class="s2">0</span><span class="s1">,</span><span class="s2">420</span><span class="s1">,</span><span class="s2">420</span><span class="s1">);</span>
+
+        <span class="s1">panel.add(AddProductBtn);</span>
+        <span class="s1">panel.add(AddPriceBtn);</span>
+        <span class="s1">panel.add(ProductText);</span>
+        <span class="s1">panel.add(PriceText);</span>
+
+        <span class="s1">add(panel);</span>
+        <span class="s1">setResizable(</span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s1">setSize(</span><span class="s2">420</span><span class="s1">,</span><span class="s2">420</span><span class="s1">);</span>
+        <span class="s1">setLocationRelativeTo(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+        <span class="s1">setVisible(</span><span class="s0">false</span><span class="s1">);</span>
+
+
+
+<span class="s3">//</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+
+        <span class="s1">AddProducts add = </span><span class="s0">new </span><span class="s1">AddProducts();</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent e) {</span>
+<span class="s3">//        if(e.getSource()==AddProductBtn){</span>
+<span class="s3">//            AddingProduct=ProductText.getText();</span>
+<span class="s3">//            Product.addElement(AddingProduct);</span>
+<span class="s3">//            System.out.print(Product);</span>
+<span class="s3">//</span>
+<span class="s3">//        }</span>
+
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

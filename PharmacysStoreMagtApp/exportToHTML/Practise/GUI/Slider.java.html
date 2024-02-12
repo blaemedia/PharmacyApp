@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Slider.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #1750eb;}
+.s4 { color: #8c8c8c; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Slider.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">Practise.GUI;</span>
+
+<span class="s0">import </span><span class="s1">javax.swing.*;</span>
+<span class="s0">import </span><span class="s1">javax.swing.event.ChangeEvent;</span>
+<span class="s0">import </span><span class="s1">javax.swing.event.ChangeListener;</span>
+<span class="s0">import </span><span class="s1">java.awt.*;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionEvent;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionListener;</span>
+
+<span class="s0">public class </span><span class="s1">Slider </span><span class="s0">extends </span><span class="s1">JFrame </span><span class="s0">implements </span><span class="s1">ChangeListener {</span>
+    <span class="s1">JSlider slider; JPanel panel; JButton btn; JTextArea display;</span>
+    <span class="s1">JLabel Label; JProgressBar bar;</span>
+
+
+
+
+
+
+    <span class="s1">Slider(){</span>
+        <span class="s0">super</span><span class="s1">(</span><span class="s2">&quot;Testing JSlider&quot;</span><span class="s1">);</span>
+
+        <span class="s1">bar = </span><span class="s0">new </span><span class="s1">JProgressBar(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">100</span><span class="s1">);</span>
+        <span class="s1">bar.setBounds(</span><span class="s3">15</span><span class="s1">,</span><span class="s3">45</span><span class="s1">,</span><span class="s3">50</span><span class="s1">,</span><span class="s3">300</span><span class="s1">);</span>
+        <span class="s1">bar.setStringPainted(</span><span class="s0">true</span><span class="s1">);</span>
+        <span class="s1">bar.setForeground(Color.red);</span>
+
+
+        <span class="s4">//Slider creation</span>
+
+        <span class="s1">slider = </span><span class="s0">new </span><span class="s1">JSlider(</span><span class="s3">0</span><span class="s1">,</span><span class="s3">100</span><span class="s1">,</span><span class="s3">50</span><span class="s1">);</span>
+
+        <span class="s1">slider.setBounds(</span><span class="s3">20</span><span class="s1">,</span><span class="s3">45</span><span class="s1">,</span><span class="s3">400</span><span class="s1">,</span><span class="s3">300</span><span class="s1">);</span>
+        <span class="s1">slider.setPaintTicks(</span><span class="s0">true</span><span class="s1">);</span>
+        <span class="s1">slider.setMajorTickSpacing(</span><span class="s3">25</span><span class="s1">);</span>
+        <span class="s1">slider.setMinorTickSpacing(</span><span class="s3">5</span><span class="s1">);</span>
+        <span class="s1">slider.setSnapToTicks(</span><span class="s0">true</span><span class="s1">);</span>
+        <span class="s1">slider.setPaintLabels(</span><span class="s0">true</span><span class="s1">);</span>
+
+        <span class="s1">slider.setOrientation(SwingConstants.VERTICAL);</span>
+
+        <span class="s1">slider.addChangeListener(</span><span class="s0">this</span><span class="s1">);</span>
+
+
+        <span class="s4">// Slider Value label</span>
+        <span class="s1">Label = </span><span class="s0">new </span><span class="s1">JLabel();</span>
+        <span class="s1">Label.setBounds(</span><span class="s3">300</span><span class="s1">,</span><span class="s3">300</span><span class="s1">,</span><span class="s3">100</span><span class="s1">,</span><span class="s3">30</span><span class="s1">);</span>
+        <span class="s1">Label.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s2">&quot;Roboto&quot;</span><span class="s1">,Font.PLAIN,</span><span class="s3">30</span><span class="s1">));</span>
+
+        <span class="s4">//Adding Component to the Slider</span>
+        <span class="s1">panel=</span><span class="s0">new </span><span class="s1">JPanel();</span>
+        <span class="s1">panel.add(slider);</span>
+        <span class="s1">panel.add(Label);</span>
+        <span class="s1">panel.add(bar);</span>
+
+
+
+        <span class="s1">panel.setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+<span class="s4">//        panel.setVisible(true);s</span>
+        <span class="s1">panel.setBounds(</span><span class="s3">50</span><span class="s1">,</span><span class="s3">100</span><span class="s1">,</span><span class="s3">500</span><span class="s1">,</span><span class="s3">400</span><span class="s1">);</span>
+
+        <span class="s1">add(panel);</span>
+
+<span class="s4">//        combo.setBounds(50,100,100,30);</span>
+
+        <span class="s1">setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">getContentPane().setBackground(Color.WHITE);</span>
+        <span class="s1">setResizable(</span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s1">setSize(</span><span class="s3">600</span><span class="s1">,</span><span class="s3">800</span><span class="s1">);</span>
+        <span class="s1">setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+        <span class="s1">setVisible(</span><span class="s0">true</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) </span><span class="s0">throws </span><span class="s1">UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {</span>
+        <span class="s1">String feel = </span><span class="s2">&quot;javax.swing.plaf.nimbus.NimbusLookAndFeel&quot;</span><span class="s1">;</span>
+        <span class="s1">UIManager.setLookAndFeel(feel);</span>
+
+        <span class="s1">Slider radio = </span><span class="s0">new </span><span class="s1">Slider();</span>
+    <span class="s1">}</span>
+
+
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">stateChanged(ChangeEvent e) {</span>
+        <span class="s1">Label.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">+slider.getValue()+</span><span class="s2">&quot;Degree&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+
+
+
+</pre>
+</body>
+</html>

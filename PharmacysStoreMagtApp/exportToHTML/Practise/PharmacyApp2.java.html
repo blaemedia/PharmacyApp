@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>PharmacyApp2.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #1750eb;}
+.s4 { color: #8c8c8c; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+PharmacyApp2.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">Practise;</span>
+
+<span class="s0">import </span><span class="s1">javax.swing.*;</span>
+<span class="s0">import </span><span class="s1">javax.swing.border.Border;</span>
+<span class="s0">import </span><span class="s1">java.awt.*;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionEvent;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionListener;</span>
+
+
+<span class="s0">public class </span><span class="s1">PharmacyApp2 </span><span class="s0">extends </span><span class="s1">JFrame </span><span class="s0">implements </span><span class="s1">ActionListener {</span>
+    <span class="s1">JLabel outputLabel;</span>
+    <span class="s1">PharmacyApp2(){</span>
+        <span class="s0">super</span><span class="s1">(</span><span class="s2">&quot;New Pharmacy App&quot;</span><span class="s1">);</span>
+        <span class="s1">JPanel panel1 = </span><span class="s0">new </span><span class="s1">JPanel();</span>
+        <span class="s1">ImageIcon logo = </span><span class="s0">new </span><span class="s1">ImageIcon(</span><span class="s2">&quot;src/Pharmacy_Logo.png&quot;</span><span class="s1">);</span>
+
+
+
+       
+        <span class="s1">JLabel name = </span><span class="s0">new </span><span class="s1">JLabel(</span><span class="s2">&quot;Emmanuel&quot;</span><span class="s1">);</span>
+        <span class="s1">name.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s2">&quot;Roboto&quot;</span><span class="s1">,Font.BOLD,</span><span class="s3">30</span><span class="s1">));</span>
+<span class="s4">//        name.setHorizontalAlignment(JLabel.LEFT);</span>
+<span class="s4">//        name.setVerticalAlignment(JLabel.CENTER);</span>
+
+        <span class="s1">name.setBounds(</span><span class="s3">110</span><span class="s1">,</span><span class="s3">10</span><span class="s1">,</span><span class="s3">1000</span><span class="s1">,</span><span class="s3">100</span><span class="s1">);</span>
+
+        <span class="s1">JLabel logoHold = </span><span class="s0">new </span><span class="s1">JLabel();</span>
+        <span class="s1">logoHold.setIcon(logo);</span>
+        <span class="s1">logoHold.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s2">&quot;Roboto&quot;</span><span class="s1">,Font.BOLD,</span><span class="s3">30</span><span class="s1">));</span>
+<span class="s4">//        name.setHorizontalAlignment(JLabel.LEFT);</span>
+<span class="s4">//        name.setVerticalAlignment(JLabel.CENTER);</span>
+
+        <span class="s1">logoHold.setBounds(</span><span class="s3">10</span><span class="s1">,</span><span class="s3">20</span><span class="s1">,</span><span class="s3">100</span><span class="s1">,</span><span class="s3">100</span><span class="s1">);</span>
+
+        <span class="s1">JButton btn1   = </span><span class="s0">new </span><span class="s1">JButton(</span><span class="s2">&quot;Button testing&quot;</span><span class="s1">);</span>
+        <span class="s1">btn1.setBorder(BorderFactory.createCompoundBorder());</span>
+        <span class="s1">btn1.setFocusable(</span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s1">btn1.setBounds(</span><span class="s3">800</span><span class="s1">,</span><span class="s3">50</span><span class="s1">,</span><span class="s3">150</span><span class="s1">,</span><span class="s3">50</span><span class="s1">);</span>
+        <span class="s1">btn1.addActionListener(</span><span class="s0">this</span><span class="s1">);</span>
+
+
+        <span class="s1">panel1.setBackground(</span><span class="s0">new </span><span class="s1">Color(</span><span class="s3">0xBDF2D5</span><span class="s1">));</span>
+        <span class="s1">panel1.setSize(</span><span class="s3">1000</span><span class="s1">,</span><span class="s3">150</span><span class="s1">);</span>
+        <span class="s1">panel1.setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">panel1.add(name);</span>
+        <span class="s1">panel1.add(logoHold);</span>
+        <span class="s1">panel1.add(btn1);</span>
+
+
+<span class="s4">//        panel1.setBounds(200,100,1000,100);</span>
+        <span class="s1">outputLabel = </span><span class="s0">new </span><span class="s1">JLabel();</span>
+        <span class="s1">outputLabel.setBounds(</span><span class="s3">50</span><span class="s1">,</span><span class="s3">300</span><span class="s1">,</span><span class="s3">1000</span><span class="s1">,</span><span class="s3">100</span><span class="s1">);</span>
+        <span class="s1">outputLabel.setFont(</span><span class="s0">new </span><span class="s1">Font(</span><span class="s2">&quot;Robot&quot;</span><span class="s1">,Font.BOLD,</span><span class="s3">50</span><span class="s1">));</span>
+
+
+        <span class="s1">setVisible(</span><span class="s0">true</span><span class="s1">);</span>
+        <span class="s1">setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">setResizable(</span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s1">setSize(</span><span class="s3">1000</span><span class="s1">,</span><span class="s3">720</span><span class="s1">);</span>
+        <span class="s1">getContentPane().setBackground(</span><span class="s0">new </span><span class="s1">Color(</span><span class="s3">0x7AD9F5</span><span class="s1">));</span>
+        <span class="s1">add(panel1);</span>
+        <span class="s1">add(outputLabel);</span>
+        <span class="s1">setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+
+
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent event){</span>
+
+            <span class="s1">outputLabel.setText(</span><span class="s2">&quot;Pressed!&quot;</span><span class="s1">);</span>
+        <span class="s1">outputLabel.setText(</span><span class="s2">&quot;Pressed!&quot;</span><span class="s1">);</span>
+
+    <span class="s1">}</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) </span><span class="s0">throws </span><span class="s1">UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {</span>
+        <span class="s1">String look=</span><span class="s2">&quot;javax.swing.plaf.nimbus.NimbusLookAndFeel&quot;</span><span class="s1">;</span>
+        <span class="s1">UIManager.setLookAndFeel(look);</span>
+        <span class="s1">PharmacyApp2 app = </span><span class="s0">new </span><span class="s1">PharmacyApp2();</span>
+
+    <span class="s1">}</span>
+
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

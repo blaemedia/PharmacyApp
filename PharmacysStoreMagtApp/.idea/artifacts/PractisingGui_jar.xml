@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PractisingGui:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PractisingGui_jar</output-path>
+    <root id="archive" name="PractisingGui.jar">
+      <element id="module-output" name="PractisingGui" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/seaglass-site-skin-1.0.jar/seaglass-site-skin-1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

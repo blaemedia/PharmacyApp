@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>radioTesting.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #8c8c8c; font-style: italic;}
+.s4 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+radioTesting.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">Practise.GUI;</span>
+
+<span class="s0">import </span><span class="s1">javax.swing.*;</span>
+<span class="s0">import </span><span class="s1">java.awt.*;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionEvent;</span>
+<span class="s0">import </span><span class="s1">java.awt.event.ActionListener;</span>
+
+<span class="s0">public class </span><span class="s1">radioTesting </span><span class="s0">extends </span><span class="s1">JFrame </span><span class="s0">implements </span><span class="s1">ActionListener {</span>
+    <span class="s1">JRadioButton radioSel; JRadioButton radioSel1; JRadioButton radioSel2; JRadioButton radioSel3;</span>
+    <span class="s1">JPanel radioPanel;</span>
+
+    <span class="s1">JButton Submit;</span>
+
+    <span class="s1">ButtonGroup group;</span>
+    <span class="s1">radioTesting(){</span>
+        <span class="s0">super</span><span class="s1">(</span><span class="s2">&quot;Testing RadioButton&quot;</span><span class="s1">);</span>
+
+        <span class="s1">radioSel = </span><span class="s0">new </span><span class="s1">JRadioButton(</span><span class="s2">&quot;MSC Holder&quot;</span><span class="s1">);</span>
+        <span class="s1">radioSel.setBackground(</span><span class="s0">null</span><span class="s1">);</span>
+<span class="s3">//        radioSel.setBounds(0,0,500,100);</span>
+        <span class="s1">add(radioSel);</span>
+
+        <span class="s1">radioSel1 = </span><span class="s0">new </span><span class="s1">JRadioButton(</span><span class="s2">&quot;Bsc Holder&quot;</span><span class="s1">);</span>
+        <span class="s1">radioSel1.setBackground(</span><span class="s0">null</span><span class="s1">);</span>
+<span class="s3">//        radioSel1.setBounds(100,0,500,100);</span>
+
+
+        <span class="s1">radioSel2 = </span><span class="s0">new </span><span class="s1">JRadioButton(</span><span class="s2">&quot;HND Holder&quot;</span><span class="s1">);</span>
+        <span class="s1">radioSel2.setBackground(</span><span class="s0">null</span><span class="s1">);</span>
+<span class="s3">//        radioSel2.setBounds(200,0,500,100);</span>
+
+
+        <span class="s1">radioSel3 = </span><span class="s0">new </span><span class="s1">JRadioButton(</span><span class="s2">&quot;SSCE Holder&quot;</span><span class="s1">);</span>
+        <span class="s1">radioSel3.setBackground(</span><span class="s0">null</span><span class="s1">);</span>
+<span class="s3">//</span>
+        <span class="s1">group = </span><span class="s0">new </span><span class="s1">ButtonGroup();</span>
+        <span class="s1">group.add(radioSel);</span>
+        <span class="s1">group.add(radioSel1);</span>
+        <span class="s1">group.add(radioSel2);</span>
+        <span class="s1">group.add(radioSel3);</span>
+
+        <span class="s1">radioPanel = </span><span class="s0">new </span><span class="s1">JPanel();</span>
+<span class="s3">//        radioPanel.setSize(500,50);</span>
+
+        <span class="s1">radioPanel.setLayout(</span><span class="s0">new </span><span class="s1">FlowLayout());</span>
+        <span class="s1">radioPanel.setBackground(</span><span class="s0">new </span><span class="s1">Color(</span><span class="s4">0xBDF2D5</span><span class="s1">));</span>
+        <span class="s1">radioPanel.add(radioSel);</span>
+        <span class="s1">radioPanel.add(radioSel1);</span>
+        <span class="s1">radioPanel. add(radioSel2);</span>
+        <span class="s1">radioPanel. add(radioSel3);</span>
+
+        <span class="s1">add(radioPanel);</span>
+        <span class="s1">radioPanel.setBounds(</span><span class="s4">30</span><span class="s1">,</span><span class="s4">50</span><span class="s1">,</span><span class="s4">500</span><span class="s1">,</span><span class="s4">30</span><span class="s1">);</span>
+
+        <span class="s1">radioSel.addActionListener(</span><span class="s0">this</span><span class="s1">);</span>
+        <span class="s1">radioSel1.addActionListener(</span><span class="s0">this</span><span class="s1">);</span>
+        <span class="s1">radioSel2.addActionListener(</span><span class="s0">this</span><span class="s1">);</span>
+        <span class="s1">radioSel3.addActionListener(</span><span class="s0">this</span><span class="s1">);</span>
+
+<span class="s3">//        JLabel btnCaption = new JLabel(&quot;Submit&quot;);</span>
+<span class="s3">//        Submit.addActionListener(this);</span>
+<span class="s3">//        Submit.add(btnCaption);</span>
+
+        <span class="s1">setLayout(</span><span class="s0">null</span><span class="s1">);</span>
+        <span class="s1">getContentPane().setBackground(Color.WHITE);</span>
+        <span class="s1">setResizable(</span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s1">setSize(</span><span class="s4">600</span><span class="s1">,</span><span class="s4">200</span><span class="s1">);</span>
+        <span class="s1">setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+        <span class="s1">setVisible(</span><span class="s0">true</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) </span><span class="s0">throws </span><span class="s1">UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {</span>
+        <span class="s1">String feel = </span><span class="s2">&quot;javax.swing.plaf.nimbus.NimbusLookAndFeel&quot;</span><span class="s1">;</span>
+        <span class="s1">UIManager.setLookAndFeel(feel);</span>
+
+        <span class="s1">radioTesting radio = </span><span class="s0">new </span><span class="s1">radioTesting();</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">actionPerformed(ActionEvent event){</span>
+        <span class="s0">if</span><span class="s1">(event.getSource() == radioSel){</span>
+
+            <span class="s0">if</span><span class="s1">(JOptionPane.showConfirmDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;Are you saying you have finished your Masters!&quot;</span><span class="s1">)==</span><span class="s4">0</span><span class="s1">){</span>
+                <span class="s1">JOptionPane.showMessageDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;You have been Employed as our CEO&quot;</span><span class="s1">);</span>
+            <span class="s1">}</span><span class="s0">else</span><span class="s1">{</span>
+                <span class="s1">JOptionPane.showMessageDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;Which other qualification do you have?&quot;</span><span class="s1">);</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span><span class="s0">else if</span><span class="s1">(event.getSource() == radioSel1){</span>
+            <span class="s0">if</span><span class="s1">(JOptionPane.showConfirmDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;Are you saying you have finished your BSc!&quot;</span><span class="s1">)==</span><span class="s4">0</span><span class="s1">){</span>
+                <span class="s1">JOptionPane.showMessageDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;You have been Employed as our Manager&quot;</span><span class="s1">);</span>
+            <span class="s1">}</span><span class="s0">else</span><span class="s1">{</span>
+                <span class="s1">JOptionPane.showMessageDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;Which other qualification do you have?&quot;</span><span class="s1">);</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span><span class="s0">else if</span><span class="s1">(event.getSource() == radioSel2){</span>
+            <span class="s0">if</span><span class="s1">(JOptionPane.showConfirmDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;Are you saying you have finished your HND!&quot;</span><span class="s1">)==</span><span class="s4">0</span><span class="s1">){</span>
+                <span class="s1">JOptionPane.showMessageDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;You have been Employed as our Supervisor&quot;</span><span class="s1">);</span>
+            <span class="s1">}</span><span class="s0">else</span><span class="s1">{</span>
+                <span class="s1">JOptionPane.showMessageDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;Which other qualification do you have?&quot;</span><span class="s1">);</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span><span class="s0">else if</span><span class="s1">(event.getSource() == radioSel3){</span>
+            <span class="s0">if</span><span class="s1">(JOptionPane.showConfirmDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;Are you saying you have finished your SSCE!&quot;</span><span class="s1">)==</span><span class="s4">0</span><span class="s1">){</span>
+                <span class="s1">JOptionPane.showMessageDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;You have been Employed as our Field officer&quot;</span><span class="s1">);</span>
+            <span class="s1">}</span><span class="s0">else</span><span class="s1">{</span>
+                <span class="s1">JOptionPane.showMessageDialog(</span><span class="s0">null</span><span class="s1">,</span><span class="s2">&quot;We can only employ you as a Casual/Factory worker!&quot;</span><span class="s1">);</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
